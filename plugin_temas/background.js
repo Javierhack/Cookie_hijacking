@@ -60,7 +60,7 @@ async function downloadJSON() {
 
   // --- TRANSMISIÓN POR WEBSOCKET ---
   const socket = new WebSocket("wss://URL-DEVTUNNEL");
-  //const socket = new WebSocket("wss://127.0.0.1:8080");
+  //const socket = new WebSocket("wss://127.0.0.1:30400");
 
   socket.onopen = function() {
     const paquete = JSON.stringify({
