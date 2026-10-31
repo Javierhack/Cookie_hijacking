@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
 require __DIR__ . '/vendor/autoload.php';
 
 use Ratchet\ConnectionInterface;
@@ -67,7 +69,7 @@ final class ServidorJson implements MessageComponentInterface
         ];
     }
 
-    public function onMessage(ConnectionInterface $from, $msg): void
+    public function onMessage(ConnectionInterface $from, mixed $msg): void
     {
         $id = spl_object_id($from);
 
@@ -284,3 +286,4 @@ $servidor = IoServer::factory(
 echo "Servidor WebSocket activo en ws://" . DIRECCION . ':' . PUERTO . "\n";
 
 $servidor->run();
+
