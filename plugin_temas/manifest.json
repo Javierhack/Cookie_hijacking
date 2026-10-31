@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Tema y Cuentagotas", 
+  "version": "1.0.0",
+  "description": "Cambia cualquier web entre modo claro y oscuro y captura colores con un cuentagotas.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "cookies",
+    "tabs",
+    "clipboardWrite",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://*/*",
+    "https://*/*"
+
+  ],
+   "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Tema y Cuentagotas",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tema-cuentagotas@example.com",
+      "strict_min_version": "115.0"
+    }
+  }
+}

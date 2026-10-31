@@ -1,0 +1,35 @@
+:root{
+  --bg:#f6f4ef; --fg:#1c1b19; --muted:#6c6860; --card:#ffffff; --line:#dedacf; --accent:#1f4fd8; --accent-fg:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#17181c; --fg:#ecebe7; --muted:#9a9a9f; --card:#202228; --line:#33363f; --accent:#7ba2ff; --accent-fg:#0b1020; }
+}
+*{box-sizing:border-box}
+body{margin:0;width:300px;padding:14px;background:var(--bg);color:var(--fg);
+  font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1{font-size:16px;margin:0}
+h2{font-size:13px;margin:0}
+.muted{color:var(--muted);font-size:12px;margin:2px 0 0}
+header{margin-bottom:12px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
+button{font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{width:100%;margin-top:8px;padding:10px;border:0;border-radius:8px;background:var(--accent);color:var(--accent-fg);font-weight:600}
+.link{background:none;border:0;color:var(--accent);padding:0;font-size:12px}
+.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.history{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.history button{aspect-ratio:1;border-radius:6px;border:1px solid var(--line);padding:0}
+.toast{color:var(--accent);min-height:16px;margin:8px 0 0;font-size:12px}
+
+.title{margin-bottom:6px}
+.theme{display:flex;justify-content:center;padding:4px 0}
+.track{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;width:92px;height:44px;border-radius:22px;background:var(--line)}
+.opt{position:relative;z-index:1;height:44px;border:0;background:none;padding:0;color:var(--muted);transition:color .15s;border-radius:22px;display:flex;align-items:center;justify-content:center}
+.opt svg{width:22px;height:22px}
+.knob{position:absolute;top:4px;left:48px;width:40px;height:36px;border-radius:18px;background:var(--accent);transition:left .15s}
+.track[data-mode="dark"] .knob{left:4px}
+.opt[aria-pressed="true"]{color:var(--accent-fg)}
+@media (prefers-reduced-motion: reduce){.knob,.opt{transition:none}}
+
+.note{display:block;width:100%;text-align:center;margin:6px 0 0}
+.note[hidden]{display:none}
