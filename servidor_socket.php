@@ -1,13 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/*
- * Instalacion:
- *   composer require cboden/ratchet
- * Ejecucion:
- *   php servidor_ratchet.php
- */
-
 require __DIR__ . '/vendor/autoload.php';
 
 use Ratchet\ConnectionInterface;
@@ -30,7 +23,7 @@ const ALLOWED_ORIGINS = [];
 
 final class ServidorJson implements MessageComponentInterface
 {
-    /** @var array<int, array{ip: string, ultimo_envio: float, conectado_en: float}> */
+    
     private array $estados = [];
 
     public function onOpen(ConnectionInterface $conn): void
@@ -57,7 +50,7 @@ final class ServidorJson implements MessageComponentInterface
             return;
         }
 
-        // Validacion de origen (comparacion exacta, igual que el original)
+        
         if (ALLOWED_ORIGINS !== []) {
             $origen = $conn->httpRequest->getHeaderLine('Origin');
 
@@ -83,7 +76,6 @@ final class ServidorJson implements MessageComponentInterface
             return;
         }
 
-        // Solo se aceptan tramas de texto (el original cierra con opcode 2)
         if (is_object($msg) && method_exists($msg, 'isBinary') && $msg->isBinary()) {
             $from->close();
             return;
@@ -91,7 +83,7 @@ final class ServidorJson implements MessageComponentInterface
 
         $datos = (string) $msg;
 
-        // Limite de tamano
+     
         if (strlen($datos) > MAX_FILE_SIZE) {
             $from->close();
             return;
@@ -247,7 +239,6 @@ final class ServidorJson implements MessageComponentInterface
 
     private function obtenerIp(ConnectionInterface $conn): string
     {
-        // remoteAddress es 'ip' o 'ip:puerto'; se quita el puerto
         $direccion = (string) ($conn->remoteAddress ?? '');
 
         if (str_starts_with($direccion, '[')) {
