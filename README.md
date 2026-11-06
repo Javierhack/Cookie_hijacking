@@ -56,7 +56,19 @@ const socket = new WebSocket("ws://127.0.0.1:30400");
 
 Guardar los cambios.
 
-## 4. Configurar el acceso remoto mediante un túnel
+4. Instalar la extensión del navegador
+
+Instalar la carpeta plugin_temas como extensión en el navegador.
+
+El proyecto es compatible con navegadores basados en Chromium, entre ellos:
+
+    Google Chrome.
+    Microsoft Edge.
+    Brave.
+
+Para instalarla, acceder a la sección de administración de extensiones del navegador, activar el modo de desarrollador y seleccionar Cargar extensión sin empaquetar. Finalmente, seleccionar la carpeta plugin_temas.
+
+## 5. Configurar el acceso remoto mediante un túnel
 
 Para permitir conexiones desde redes externas, es necesario utilizar un servicio de túnel que exponga el puerto del servidor WebSocket a Internet.
 
@@ -64,7 +76,7 @@ Existen diferentes alternativas, como Cloudflare Tunnel y Microsoft Dev Tunnels.
 
 En esta documentación utilizaremos **Microsoft Dev Tunnels**.
 
-### 4.1. Instalar Microsoft Dev Tunnels
+### 5.1. Instalar Microsoft Dev Tunnels
 
 Abrir una terminal de Windows y ejecutar:
 
@@ -72,7 +84,7 @@ Abrir una terminal de Windows y ejecutar:
 winget install Microsoft.devtunnel
 ```
 
-### 4.2. Iniciar sesión
+### 5.2. Iniciar sesión
 
 Microsoft Dev Tunnels permite autenticarse utilizando una cuenta de GitHub o Microsoft.
 
@@ -88,7 +100,7 @@ devtunnel user login -g
 devtunnel user login
 ```
 
-### 4.3. Crear un túnel público
+### 5.3. Crear un túnel público
 
 Ejecutar el siguiente comando para exponer el puerto `30400`:
 
@@ -100,7 +112,7 @@ devtunnel host -p 30400 --allow-anonymous
 
 Al iniciar el túnel, Dev Tunnels proporcionará una dirección pública que permitirá acceder al servicio desde Internet.
 
-### 4.4. Configurar la conexión remota
+### 5.4. Configurar la conexión remota
 
 Volver a la carpeta `plugin_temas` y abrir el archivo `background.js`.
 
@@ -114,7 +126,7 @@ Reemplazar `URL-DEVTUNNEL` por la dirección asignada por Microsoft Dev Tunnels.
 
 Guardar los cambios.
 
-## 5. Instalar la extensión del navegador
+## 6. Instalar la extensión del navegador
 
 Instalar la carpeta `plugin_temas` como extensión en el navegador.
 
@@ -126,7 +138,7 @@ El proyecto es compatible con navegadores basados en Chromium, entre ellos:
 
 Para instalarla, acceder a la sección de administración de extensiones del navegador, activar el modo de desarrollador y seleccionar **Cargar extensión sin empaquetar**. Finalmente, seleccionar la carpeta `plugin_temas`.
 
-## 6. Consideraciones de seguridad
+## 7. Consideraciones de seguridad
 
 - No mantener el túnel público activo cuando no se esté utilizando.
 - Detener Microsoft Dev Tunnels al finalizar las pruebas.
