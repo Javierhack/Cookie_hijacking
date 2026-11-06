@@ -50,7 +50,7 @@ const socket = new WebSocket("ws://127.0.0.1:30400");
 
 ## 🧩 Instalación de la Extensión en el Navegador
 
-Una vez que hayas decidido y configurado tu conexión (Local o Remota), añade la extensión a tu navegador:
+Una vez que hayas configurado tu conexión (Local), añade la extensión a tu navegador:
 
 1. Abre la sección de administración de extensiones del navegador (`chrome://extensions/` o `edge://extensions/`).
 2. Activa el interruptor del **Modo de desarrollador** (suele estar en la esquina superior derecha).
@@ -105,7 +105,7 @@ const socket = new WebSocket("wss://URL-DEVTUNNEL");
 
 ## 🧩 Instalación de la Extensión en el Navegador
 
-Una vez que hayas decidido y configurado tu conexión (Local o Remota), añade la extensión a tu navegador:
+Una vez que hayas configurado tu conexión (Remota), añade la extensión a tu navegador:
 
 1. Abre la sección de administración de extensiones del navegador (`chrome://extensions/` o `edge://extensions/`).
 2. Activa el interruptor del **Modo de desarrollador** (suele estar en la esquina superior derecha).
