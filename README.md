@@ -56,7 +56,7 @@ const socket = new WebSocket("ws://127.0.0.1:30400");
 
 Guardar los cambios.
 
-4. Instalar la extensión del navegador
+##4. Instalar la extensión del navegador
 
 Instalar la carpeta plugin_temas como extensión en el navegador.
 
