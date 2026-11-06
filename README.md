@@ -47,6 +47,18 @@ const socket = new WebSocket("ws://127.0.0.1:30400");
 ```
 4. Guarda los cambios del archivo.
 
+## 🧩 Instalación de la Extensión en el Navegador
+
+Una vez que hayas decidido y configurado tu conexión (Local o Remota), añade la extensión a tu navegador:
+
+1. Abre la sección de administración de extensiones del navegador (`chrome://extensions/` o `edge://extensions/`).
+2. Activa el interruptor del **Modo de desarrollador** (suele estar en la esquina superior derecha).
+3. Haz clic en el botón **Cargar extensión sin empaquetar**.
+4. Busca en tus archivos y selecciona la carpeta completa llamada `plugin_temas`.
+
+> [!NOTE]
+> No es necesario desinstalar o volver a cargar la extensión si decides alternar entre el modo local y remoto. Únicamente modifica la dirección del WebSocket en `background.js`, guarda el archivo y haz clic en el icono de **Recargar** dentro del gestor de extensiones.
+
 ---
 
 ## 🌐 Configuración del Acceso Remoto 
