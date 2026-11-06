@@ -30,13 +30,13 @@ final class ServidorJson implements MessageComponentInterface
 
     public function onOpen(ConnectionInterface $conn): void
     {
-        // Limite de clientes
+      
         if (count($this->estados) >= MAX_CLIENTS) {
             $conn->close();
             return;
         }
 
-        // Limite de conexiones simultaneas por IP
+        
         $ip = $this->obtenerIp($conn);
         $porIp = 0;
 
