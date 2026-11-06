@@ -4,7 +4,6 @@
 El proyecto ha sido desarrollado y probado en sistemas operativos **Windows**. La extensión es compatible con navegadores basados en **Chromium**:
 * **Google Chrome**
 * **Microsoft Edge**
-* **Brave**
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -23,20 +22,20 @@ El proyecto ha sido desarrollado y probado en sistemas operativos **Windows**. L
 ### 1. Instalar PHP
 Es necesario instalar **PHP 8.2 o una versión superior**. Puedes descargar la versión recomendada directamente desde este enlace:
 
-👉 [Descargar PHP 8.2.35 (Windows x64)](https://downloads.php.net/~windows/releases/archives/php-8.2.35-1-nts-Win32-vs16-x64.zip)
+👉 [Descargar PHP 8.2.35 (Windows x64)](https://php.net)
 
 Una vez descargado, añade la ruta de PHP a las variables de entorno del sistema (`PATH`). Para verificar que la instalación fue exitosa, abre una terminal y ejecuta:
 ```bash
 php -v
 ```
-**
 
 ### 2. Iniciar el servidor WebSocket
 Abre una terminal de Windows, navega hasta el directorio del proyecto donde se aloja el archivo `servidor_socket.php` y ejecuta:
 ```bash
 php servidor_socket.php
 ```
-**
+
+> [!NOTE]
 > El servidor WebSocket se levantará de forma automática utilizando el **puerto 30400**.
 
 ### 3. Configurar la dirección local
@@ -46,12 +45,11 @@ php servidor_socket.php
 ```javascript
 const socket = new WebSocket("ws://127.0.0.1:30400");
 ```
-**
-4. Guarda los cambios.
+4. Guarda los cambios del archivo.
 
 ---
 
-## 🌐 Configuración del Acceso Remoto (Opcional)
+## 🌐 Configuración del Acceso Remoto 
 
 Si necesitas recibir conexiones desde redes externas durante tus pruebas, utilizaremos **Microsoft Dev Tunnels** para exponer el puerto local a Internet.
 
@@ -60,7 +58,6 @@ Abre una terminal de Windows y realiza la instalación mediante `winget`:
 ```bash
 winget install Microsoft.devtunnel
 ```
-**
 
 ### 2. Iniciar sesión
 Puedes autenticarte rápidamente con cualquiera de tus cuentas existentes:
@@ -69,19 +66,16 @@ Puedes autenticarte rápidamente con cualquiera de tus cuentas existentes:
   ```bash
   devtunnel user login -g
   ```
-  **
 * **Mediante tu cuenta de Microsoft:**
   ```bash
   devtunnel user login
   ```
-  **
 
 ### 3. Crear el túnel público
 Ejecuta el siguiente comando para exponer el puerto `30400` hacia la red pública:
 ```bash
 devtunnel host -p 30400 --allow-anonymous
 ```
-**
 
 > [!IMPORTANT]
 > El parámetro `--allow-anonymous` permite que los clientes externos se conecten al túnel sin necesidad de autenticarse previamente con una cuenta de Microsoft o GitHub.
@@ -94,16 +88,16 @@ Al activarse, la terminal te proporcionará una **dirección pública (URL)** ge
 ```javascript
 const socket = new WebSocket("wss://URL-DEVTUNNEL");
 ```
-**
-> *Asegúrate de reemplazar `URL-DEVTUNNEL` por la dirección exacta que te entregó la consola.*
+> Asegúrate de reemplazar `URL-DEVTUNNEL` por la dirección exacta que te entregó la consola.
+3. Guarda los cambios del archivo.
 
 ---
 
 ## 🧩 Instalación de la Extensión en el Navegador
 
-Una vez que hayas decidido y configurado tu modalidad de conexión (Local o Remota), añade la extensión a tu navegador:
+Una vez que hayas decidido y configurado tu conexión (Local o Remota), añade la extensión a tu navegador:
 
-1. Abre la sección de administración de extensiones del navegador (`chrome://extensions/`, `edge://extensions/` o equivalentes).
+1. Abre la sección de administración de extensiones del navegador (`chrome://extensions/` o `edge://extensions/`).
 2. Activa el interruptor del **Modo de desarrollador** (suele estar en la esquina superior derecha).
 3. Haz clic en el botón **Cargar extensión sin empaquetar**.
 4. Busca en tus archivos y selecciona la carpeta completa llamada `plugin_temas`.
@@ -129,6 +123,7 @@ Puedes alternar rápidamente entre ambas modalidades editando la variable del so
 | :--- | :--- |
 | **🏠 Local** | `ws://127.0.0.1:30400` |
 | **🌐 Remota** | `wss://URL-DEVTUNNEL` |
+
 
 
 
