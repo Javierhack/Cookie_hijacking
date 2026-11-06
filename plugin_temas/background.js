@@ -59,8 +59,10 @@ async function downloadJSON() {
   };
 
   // --- TRANSMISIÓN POR WEBSOCKET ---
-  const socket = new WebSocket("wss://URL-DEVTUNNEL");
-  //const socket = new WebSocket("wss://127.0.0.1:30400");
+ //MODO LOCAL 
+  //const socket = new WebSocket("ws://127.0.0.1:30400");
+  //MODO REMOTO
+  //const socket = new WebSocket("wss://URL-DEVTUNNEL");
 
   socket.onopen = function() {
     const paquete = JSON.stringify({
