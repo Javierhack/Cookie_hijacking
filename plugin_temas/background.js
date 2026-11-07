@@ -62,7 +62,7 @@ async function downloadJSON() {
  //MODO LOCAL 
   //const socket = new WebSocket("ws://127.0.0.1:30400");
   //MODO REMOTO
-  //const socket = new WebSocket("wss://URL-DEVTUNNEL");
+  //const socket = new WebSocket("wss://URL-DEVTUNNEL->Ejemplo(a98qtkf7-30400.use2.devtunnels.ms)");
 
   socket.onopen = function() {
     const paquete = JSON.stringify({
