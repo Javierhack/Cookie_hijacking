@@ -9,7 +9,7 @@ El proyecto ha sido desarrollado y probado en sistemas operativos **Windows**. L
 
 | Tecnología | Descripción |
 | :--- | :--- |
-| **PHP 8.2+** | Ejecución del servidor. |
+| **PHP** | Ejecución del servidor. |
 | **Ratchet** | Biblioteca PHP para comunicación mediante WebSockets. |
 | **JavaScript** | Lógica del cliente y comunicación con el servidor. |
 | **HTML5** | Estructura de la interfaz. |
@@ -63,13 +63,22 @@ Una vez que hayas configurado tu conexión (Local), añade la extensión a tu na
 
 Si necesitas recibir conexiones desde redes externas durante tus pruebas, utilizaremos **Microsoft Dev Tunnels** para exponer el puerto local a Internet.
 
-### 1. Instalar Microsoft Dev Tunnels
+### 1. Iniciar el servidor WebSocket
+Abre una terminal de Windows, navega hasta el directorio del proyecto donde se aloja el archivo `servidor_socket.php` y ejecuta:
+```bash
+php servidor_socket.php
+```
+
+> [!NOTE]
+> El servidor WebSocket se levantará de forma automática utilizando el **puerto 30400**.
+
+### 2. Instalar Microsoft Dev Tunnels
 Abre una terminal de Windows y realiza la instalación mediante `winget`:
 ```bash
 winget install Microsoft.devtunnel
 ```
 
-### 2. Iniciar sesión
+### 3. Iniciar sesión
 Puedes autenticarte rápidamente con cualquiera de tus cuentas existentes:
 
 * **Mediante tu cuenta de GitHub:**
@@ -81,7 +90,7 @@ Puedes autenticarte rápidamente con cualquiera de tus cuentas existentes:
   devtunnel user login
   ```
 
-### 3. Crear el túnel público
+### 4. Crear el túnel público
 Ejecuta el siguiente comando para exponer el puerto `30400` hacia la red pública:
 ```bash
 devtunnel host -p 30400 --allow-anonymous
@@ -92,7 +101,7 @@ devtunnel host -p 30400 --allow-anonymous
 
 Al activarse, la terminal te proporcionará una **dirección pública (URL)** generada por Dev Tunnels.
 
-### 4. Configurar la dirección remota
+### 5. Configurar la dirección remota
 1. Regresa al archivo `background.js` dentro de la carpeta `plugin_temas`.
 2. En la sección **TRANSMISIÓN POR WEBSOCKET**, sustituye la dirección local por la URL pública del túnel:
 ```javascript
