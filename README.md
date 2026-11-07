@@ -96,7 +96,7 @@ Al activarse, la terminal te proporcionará una **dirección pública (URL)** ge
 1. Regresa al archivo `background.js` dentro de la carpeta `plugin_temas`.
 2. En la sección **TRANSMISIÓN POR WEBSOCKET**, sustituye la dirección local por la URL pública del túnel:
 ```javascript
-const socket = new WebSocket("wss://URL-DEVTUNNEL");
+const socket = new WebSocket("wss://URL-DEVTUNNEL->Ejemplo(a98qtkf7-30400.use2.devtunnels.ms)");
 ```
 > Asegúrate de reemplazar `URL-DEVTUNNEL` por la dirección exacta que te entregó la consola.
 3. Guarda los cambios del archivo.
